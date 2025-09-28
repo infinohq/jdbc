@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialect name='OpenSearchSqlJdbcDialect'
-         class='opensearch_jdbc'
+<dialect name='InfinoSqlJdbcDialect'
+         class='Infino_jdbc'
          base='MySQL41UnicodeDriverDialect'
          version='18.1'>   
    <function-map>   

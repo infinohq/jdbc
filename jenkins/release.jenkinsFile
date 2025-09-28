@@ -1,12 +1,12 @@
 lib = library(identifier: 'jenkins@10.0.0', retriever: modernSCM([
     $class: 'GitSCMSource',
-    remote: 'https://github.com/opensearch-project/opensearch-build-libraries.git',
+    remote: 'https://github.com/infinohq/infino.git',
 ]))
 
 standardReleasePipelineWithGenericTrigger(
-    overrideDockerImage: 'opensearchstaging/ci-runner:release-centos7-clients-v4',
+    overrideDockerImage: 'Infinostaging/ci-runner:release-centos7-clients-v4',
     tokenIdCredential: 'jenkins-sql-jdbc-generic-webhook-token',
-    causeString: 'A tag was cut on opensearch-project/sql-jdbc repository causing this workflow to run',
+    causeString: 'A tag was cut on infinohq/infino repository causing this workflow to run',
     downloadReleaseAsset: true,
     publishRelease: true) {
         publishToMaven(
@@ -15,9 +15,9 @@ standardReleasePipelineWithGenericTrigger(
             autoPublish: true
         )
         publishToArtifactsProdBucket(
-            assumedRoleName: 'sql-jdbc-upload-role',
-            source: "$WORKSPACE/shadowJar/opensearch-sql-jdbc-shadow-${tag}.jar",
-            destination: "opensearch-clients/jdbc/opensearch-sql-jdbc-shadow-${tag}.jar",
+            assumedRoleName: 'infino-upload-role',
+            source: "$WORKSPACE/shadowJar/infino-jdbc-shadow-${tag}.jar",
+            destination: "Infino-clients/jdbc/infino-jdbc-shadow-${tag}.jar",
             signingPlatform: 'jar_signer',
             sigOverwrite: true
         )

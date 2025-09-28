@@ -35,6 +35,6 @@ The release process is standard across repositories in this org and is run by a 
 
 1. Create a tag, e.g. 1.0.0.0, and push it to this GitHub repository.
 1. The [release-drafter.yml](.github/workflows/release-drafter.yml) will be automatically kicked off and a draft release will be created.
-1. This draft release triggers the [jenkins release workflow](https://build.ci.opensearch.org/job/sql-jdbc-release) as a result of which the driver is released on [maven central](https://search.maven.org/search?q=org.opensearch.driver). Please note that the release workflow is triggered only if created release is in draft state.
+1. This draft release triggers the [jenkins release workflow](https://build.ci.Infino.org/job/sql-jdbc-release) as a result of which the driver is released on [maven central](https://search.maven.org/search?q=org.infino.driver). Please note that the release workflow is triggered only if created release is in draft state.
 1. Once the above release workflow is successful, the drafted release on GitHub is published automatically.
-1. Increment "version" in [build.gradle](./build.gradle) to the next iteration, e.g. 1.0.0.1 See [example](https://github.com/opensearch-project/sql-jdbc/pull/11).
+1. Increment "version" in [build.gradle](./build.gradle) to the next iteration, e.g. 1.0.0.1 See [example](https://github.com/Infino-project/sql-jdbc/pull/11).

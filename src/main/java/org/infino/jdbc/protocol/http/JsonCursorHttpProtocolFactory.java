@@ -1,0 +1,37 @@
+/*
+ * Copyright Infino and OpenSearch Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.infino.jdbc.protocol.http;
+
+import org.infino.jdbc.config.ConnectionConfig;
+import org.infino.jdbc.protocol.ProtocolFactory;
+import org.infino.jdbc.transport.http.HttpTransport;
+
+/**
+ * Factory to create JsonCursorHttpProtocol objects
+ *
+ * @author abbas hussain
+ * @since 07.05.20
+ */
+public class JsonCursorHttpProtocolFactory implements ProtocolFactory<JsonCursorHttpProtocol, HttpTransport> {
+
+    public static JsonCursorHttpProtocolFactory INSTANCE = new JsonCursorHttpProtocolFactory();
+
+    private JsonCursorHttpProtocolFactory() {
+
+    }
+
+    @Override
+    public JsonCursorHttpProtocol getProtocol(ConnectionConfig connectionConfig, HttpTransport transport) {
+        // Extract account ID from connection config if present
+        String accountId = connectionConfig.accountId();
+        if (accountId != null && !accountId.isEmpty()) {
+            String sqlContextPath = "/" + accountId + "/_sql";
+            return new JsonCursorHttpProtocol(transport, sqlContextPath);
+        } else {
+            return new JsonCursorHttpProtocol(transport);
+        }
+    }
+}

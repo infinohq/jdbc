@@ -1,9 +1,8 @@
 /*
- * Copyright OpenSearch Contributors
+ * Copyright Infino and OpenSearch Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
-
 
 buildscript {
     repositories {
@@ -21,7 +20,7 @@ plugins {
     id 'signing'
 }
 
-group 'org.opensearch.driver'
+group 'org.infino.driver'
 
 // keep version in sync with version in Driver source
 version '1.4.0.2'
@@ -87,7 +86,7 @@ tasks.withType(JavaCompile) {
 }
 
 static def getShadowPath(String path) {
-    return 'org.opensearch.sql.jdbc.shadow.' + path
+    return 'org.infino.sql.jdbc.shadow.' + path
 }
 
 jar {
@@ -96,7 +95,7 @@ jar {
 }
 
 shadowJar {
-    archiveBaseName = rootProject.name + "-shadow"
+    archiveBaseName = "infino-sql-jdbc"
     archiveClassifier = null
 
     exclude 'META-INF/maven/commons-*/**'
@@ -140,14 +139,14 @@ publishing {
             artifact javadocJar
 
             pom {
-                name = "OpenSearch SQL JDBC Driver"
+                name = "Infino SQL JDBC Driver"
                 packaging = "jar"
-                url = "https://github.com/opensearch-project/sql-jdbc"
-                description = "OpenSearch SQL JDBC driver"
+                url = "https://github.com/infinohq/infino"
+                description = "Infino SQL JDBC driver"
                 scm {
-                    connection = "scm:git@github.com:opensearch-project/sql-jdbc.git"
-                    developerConnection = "scm:git@github.com:opensearch-project/sql-jdbc.git"
-                    url = "git@github.com:opensearch-project/sql-jdbc.git"
+                    connection = "scm:git@github.com:infinohq/infino.git"
+                    developerConnection = "scm:git@github.com:infinohq/infino.git"
+                    url = "git@github.com:infinohq/infino.git"
                 }
                 licenses {
                     license {
@@ -157,8 +156,8 @@ publishing {
                 }
                 developers {
                     developer {
-                        name = 'OpenSearch'
-                        url = 'https://github.com/opensearch-project/sql-jdbc'
+                        name = 'Infino'
+                        url = 'https://github.com/infinohq/infino'
                     }
                 }
             }
@@ -169,14 +168,14 @@ publishing {
             artifact javadocJar
 
             pom {
-                name = "OpenSearch SQL JDBC Driver"
+                name = "Infino SQL JDBC Driver"
                 packaging = "jar"
-                url = "https://github.com/opensearch-project/sql-jdbc"
-                description = "OpenSearch SQL JDBC driver"
+                url = "https://github.com/infinohq/infino"
+                description = "Infino SQL JDBC driver"
                 scm {
-                    connection = "scm:git@github.com:opensearch-project/sql-jdbc.git"
-                    developerConnection = "scm:git@github.com:opensearch-project/sql-jdbc.git"
-                    url = "git@github.com:opensearch-project/sql-jdbc.git"
+                    connection = "scm:git@github.com:infinohq/infino.git"
+                    developerConnection = "scm:git@github.com:infinohq/infino.git"
+                    url = "git@github.com:infinohq/infino.git"
                 }
                 licenses {
                     license {
@@ -186,8 +185,8 @@ publishing {
                 }
                 developers {
                     developer {
-                        name = 'OpenSearch'
-                        url = 'https://github.com/opensearch-project/sql-jdbc'
+                        name = 'Infino'
+                        url = 'https://github.com/Infino-project/jdbc'
                     }
                 }
             }
