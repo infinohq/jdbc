@@ -8,7 +8,7 @@ package org.infino.jdbc.internal;
 public enum Version {
 
     // keep this in sync with the gradle version
-    Current(1, 4, 0, 1);
+    Current(0, 1, 0, 0);
 
     private int major;
     private int minor;

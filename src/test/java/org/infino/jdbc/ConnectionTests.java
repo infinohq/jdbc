@@ -251,7 +251,7 @@ class ConnectionTests implements WireMockServerHelpers {
                 mockServer.stubFor(get(urlEqualTo("/"))
                                 .withHeader("Authorization",
                                                 equalTo("AWS4-HMAC-SHA256 " +
-                                                                "Credential=AKIAJUXF4LQLB55YQ73A/20181119/us-east-1/es/aws4_request, "
+                                                                "Credential=AKIAJUXF4LQLB55YQ73A/20181119/us-east-1/es/aws4_request, " // #ggignore
                                                                 +
                                                                 "SignedHeaders=host;user-agent;x-amz-date, " +
                                                                 "Signature=80088eaaa2e7766ccee12014a5ab80d323635347157ea29935e990d34bcbff12"))
