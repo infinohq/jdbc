@@ -38,7 +38,7 @@ If using with JDBC compatible BI tools, refer to the tool documentation on confi
 
 To setup a connection, the driver requires a JDBC connection URL. The connection URL is of the form:
 ```
-    jdbc:Infino://[scheme://][host][:port][/context-path]?[property-key=value]&[property-key2=value2]..&[property-keyN=valueN]
+    jdbc:infino://[scheme://][host][:port][/context-path]?[property-key=value]&[property-key2=value2]..&[property-keyN=valueN]
 ```
 
 
@@ -109,7 +109,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://localhost:9200";
+String url = "jdbc:infino://localhost:9200";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -128,7 +128,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -147,7 +147,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -169,7 +169,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 String user = "username";
 String password = "password";
 
@@ -190,7 +190,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -214,7 +214,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -262,7 +262,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("auth", "aws_sigv4");
@@ -284,7 +284,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("awsCredentialsProvider", new EnvironmentVariableCredentialsProvider());
@@ -325,7 +325,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("auth", "aws_sigv4");
@@ -354,7 +354,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://localhost:9200";
+String url = "jdbc:infino://localhost:9200";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
@@ -378,7 +378,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
@@ -402,7 +402,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);

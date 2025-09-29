@@ -16,6 +16,7 @@ import org.infino.jdbc.protocol.exceptions.ResponseException;
 
 import java.io.IOException;
 import java.sql.Connection;
+import org.infino.jdbc.logging.InfinoConnection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;

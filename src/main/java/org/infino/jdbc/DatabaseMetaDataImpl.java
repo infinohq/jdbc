@@ -14,6 +14,7 @@ import org.infino.jdbc.types.InfinoType;
 import org.infino.jdbc.logging.Logger;
 
 import java.sql.Connection;
+import org.infino.jdbc.logging.InfinoConnection;
 import java.sql.DatabaseMetaData;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

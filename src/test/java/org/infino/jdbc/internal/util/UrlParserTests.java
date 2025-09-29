@@ -27,14 +27,14 @@ class UrlParserTests {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "jdbc:Infino://host:9200",
-            "jdbc:Infino://host:9200/path",
-            "jdbc:Infino://host:9200/path/",
-            "jdbc:Infino://host:9200/path?option=value",
-            "jdbc:Infino://host:9200/path?option=value&option2=value2",
-            "jdbc:Infino://host/path",
-            "jdbc:Infino://host/path/",
-            "jdbc:Infino://host/path?option=value&option2=value2",
+            "jdbc:infino://host:9200",
+            "jdbc:infino://host:9200/path",
+            "jdbc:infino://host:9200/path/",
+            "jdbc:infino://host:9200/path?option=value",
+            "jdbc:infino://host:9200/path?option=value&option2=value2",
+            "jdbc:infino://host/path",
+            "jdbc:infino://host/path/",
+            "jdbc:infino://host/path?option=value&option2=value2",
     })
     void testIsAcceptable(String url) {
         assertTrue(UrlParser.isAcceptable(url), () -> url + " was not accepted");
@@ -60,29 +60,29 @@ class UrlParserTests {
     @Test
     void testPropertiesFromURL() throws URISyntaxException {
 
-        propertiesFromUrl("jdbc:Infino://")
+        propertiesFromUrl("jdbc:infino://")
                 .match(); // empty properties
 
-        propertiesFromUrl("jdbc:Infino://https://localhost:9200/")
+        propertiesFromUrl("jdbc:infino://https://localhost:9200/")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "localhost"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "9200"),
                         KeyValuePairs.skvp(UseSSLConnectionProperty.KEY, "true"),
                         KeyValuePairs.skvp(PathConnectionProperty.KEY, "/"));
 
-        propertiesFromUrl("jdbc:Infino://localhost:9200")
+        propertiesFromUrl("jdbc:infino://localhost:9200")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "localhost"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "9200"),
                         KeyValuePairs.skvp(UseSSLConnectionProperty.KEY, "false"));
 
-        propertiesFromUrl("jdbc:Infino://es-domain-name.sub.hostname.com:1080")
+        propertiesFromUrl("jdbc:infino://es-domain-name.sub.hostname.com:1080")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "es-domain-name.sub.hostname.com"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "1080"),
                         KeyValuePairs.skvp(UseSSLConnectionProperty.KEY, "false"));
 
-        propertiesFromUrl("jdbc:Infino://es-domain-name.sub.hostname.com:1090/")
+        propertiesFromUrl("jdbc:infino://es-domain-name.sub.hostname.com:1090/")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "es-domain-name.sub.hostname.com"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "1090"),
@@ -94,7 +94,7 @@ class UrlParserTests {
     @Test
     public void testPropertiesFromLongUrl() {
         propertiesFromUrl(
-                "jdbc:Infino://search-Infino-es23-dedm-za-1-edmwao5g64rlo3hcohapy2jpru.us-east-1.es.a9.com")
+                "jdbc:infino://search-Infino-es23-dedm-za-1-edmwao5g64rlo3hcohapy2jpru.us-east-1.es.a9.com")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY,
                                 "search-Infino-es23-dedm-za-1-edmwao5g64rlo3hcohapy2jpru.us-east-1.es.a9.com"),
@@ -111,7 +111,7 @@ class UrlParserTests {
 
     @Test
     public void testPropertiesFromUrlInvalidScheme() {
-        String url = "jdbc:Infino://tcp://domain-name.sub-domain.com:9023";
+        String url = "jdbc:infino://tcp://domain-name.sub-domain.com:9023";
 
         URISyntaxException ex = assertThrows(URISyntaxException.class, () -> UrlParser.parseProperties(url));
         assertTrue(ex.getMessage().contains("Invalid scheme:tcp"));
@@ -119,9 +119,9 @@ class UrlParserTests {
 
     @Test
     public void testPropertiesFromUrlHttpsScheme() {
-        String url = "jdbc:Infino://https://domain-name.sub-domain.com:9023";
+        String url = "jdbc:infino://https://domain-name.sub-domain.com:9023";
 
-        propertiesFromUrl("jdbc:Infino://https://domain-name.sub-domain.com:9023")
+        propertiesFromUrl("jdbc:infino://https://domain-name.sub-domain.com:9023")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "domain-name.sub-domain.com"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "9023"),
@@ -130,7 +130,7 @@ class UrlParserTests {
 
     @Test
     public void testPropertiesFromUrlHttpsSchemeAndPath() {
-        propertiesFromUrl("jdbc:Infino://https://domain-name.sub-domain.com:9023/context/path")
+        propertiesFromUrl("jdbc:infino://https://domain-name.sub-domain.com:9023/context/path")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "domain-name.sub-domain.com"),
                         KeyValuePairs.skvp(PortConnectionProperty.KEY, "9023"),
@@ -140,7 +140,7 @@ class UrlParserTests {
 
     @Test
     public void testPropertiesFromUrlAndQueryString() {
-        propertiesFromUrl("jdbc:Infino://https://domain-name.sub-domain.com:9023/context/path?" +
+        propertiesFromUrl("jdbc:infino://https://domain-name.sub-domain.com:9023/context/path?" +
                 "user=username123&password=pass@$!w0rd")
                 .match(
                         KeyValuePairs.skvp(HostConnectionProperty.KEY, "domain-name.sub-domain.com"),
@@ -153,7 +153,7 @@ class UrlParserTests {
 
     @Test
     public void testPropertiesFromUrlWithInvalidQueryString() {
-        final String url = "jdbc:Infino://https://domain-name.sub-domain.com:9023/context/path?prop=value=3";
+        final String url = "jdbc:infino://https://domain-name.sub-domain.com:9023/context/path?prop=value=3";
 
         URISyntaxException ex = assertThrows(URISyntaxException.class, () -> UrlParser.parseProperties(url));
         assertTrue(ex.getMessage().contains("Expected key=value pairs"));

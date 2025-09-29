@@ -222,7 +222,7 @@ public class PreparedStatementImpl extends StatementImpl implements PreparedStat
     private void setObjectX(int parameterIndex, Object x, int targetSqlType, Map<String, Object> conversionParams)
             throws SQLException {
         JDBCType jdbcType = JDBCType.valueOf(targetSqlType);
-        InfinoType InfinoType = InfinoType.fromJdbcType(jdbcType);
+        InfinoType infinoType = InfinoType.fromJdbcType(jdbcType);
 
         Object value = TypeConverters.getInstance(jdbcType).convert(x, null, conversionParams);
 
@@ -233,7 +233,7 @@ public class PreparedStatementImpl extends StatementImpl implements PreparedStat
             value = JdbcDateTimeFormatter.JDBC_FORMAT.format((Date) value);
         }
 
-        setParameter(parameterIndex, InfinoType.getTypeName(), value);
+        setParameter(parameterIndex, infinoType.getTypeName(), value);
     }
 
     @Override

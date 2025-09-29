@@ -12,6 +12,7 @@ import org.infino.jdbc.config.PasswordConnectionProperty;
 import org.infino.jdbc.config.UserConnectionProperty;
 import org.infino.jdbc.internal.JdbcWrapper;
 import org.infino.jdbc.internal.util.UrlParser;
+import org.infino.jdbc.logging.InfinoConnection;
 import org.infino.jdbc.logging.LoggingSource;
 import com.amazonaws.auth.AWSCredentialsProvider;
 

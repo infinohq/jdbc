@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
 
 public class UrlParser {
 
-    public static final String URL_PREFIX = "jdbc:Infino://";
+    public static final String URL_PREFIX = "jdbc:infino://";
     private static final int URL_PREFIX_LEN = URL_PREFIX.length();
 
     private static final String SCHEME_DELIM = "://";
@@ -93,9 +93,12 @@ public class UrlParser {
 
                 // Extract account ID from path (format: /account123)
                 // This follows JDBC convention where path represents the database/account
+                // Only extract if path is a simple identifier (no additional slashes)
                 if (path.startsWith("/") && path.length() > 1) {
                     String accountId = path.substring(1); // Remove leading slash
-                    props.setProperty("accountid", accountId);
+                    if (!accountId.contains("/")) { // Only simple identifiers, not paths like "context/path"
+                        props.setProperty("accountid", accountId);
+                    }
                 }
             }
 

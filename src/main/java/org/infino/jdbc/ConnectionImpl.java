@@ -10,6 +10,7 @@ import org.infino.jdbc.config.ConnectionConfig;
 import org.infino.jdbc.internal.JdbcWrapper;
 import org.infino.jdbc.internal.Version;
 import org.infino.jdbc.internal.util.JavaUtil;
+import org.infino.jdbc.logging.InfinoConnection;
 import org.infino.jdbc.logging.Logger;
 import org.infino.jdbc.logging.LoggingSource;
 import org.infino.jdbc.protocol.ClusterMetadata;
@@ -29,6 +30,7 @@ import java.sql.Array;
 import java.sql.Blob;
 import java.sql.CallableStatement;
 import java.sql.Clob;
+import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.NClob;
 import java.sql.PreparedStatement;
@@ -56,6 +58,7 @@ public class ConnectionImpl implements InfinoConnection, JdbcWrapper, LoggingSou
     private Transport transport;
     private Protocol protocol;
     private ClusterMetadata clusterMetadata;
+    private ConnectionConfig connectionConfig;
     // https://docs.oracle.com/cd/E15817_01/appdev.111/b31228/appd.htm
     // 28000 is the SQLSTATE for invalid authorization specification
     private final String INCORRECT_CREDENTIALS_SQLSTATE = "28000";
@@ -67,6 +70,7 @@ public class ConnectionImpl implements InfinoConnection, JdbcWrapper, LoggingSou
     public ConnectionImpl(ConnectionConfig connectionConfig, TransportFactory transportFactory,
             ProtocolFactory protocolFactory, Logger log) throws SQLException {
         this.log = log;
+        this.connectionConfig = connectionConfig;
         this.url = connectionConfig.getUrl();
         this.user = connectionConfig.getUser();
         this.fetchSize = connectionConfig.getFetchSize();
@@ -104,6 +108,10 @@ public class ConnectionImpl implements InfinoConnection, JdbcWrapper, LoggingSou
 
     public String getUser() {
         return user;
+    }
+
+    public ConnectionConfig getConnectionConfig() {
+        return connectionConfig;
     }
 
     public int getFetchSize() {
@@ -231,14 +239,14 @@ public class ConnectionImpl implements InfinoConnection, JdbcWrapper, LoggingSou
     @Override
     public void setTransactionIsolation(int level) throws SQLException {
         checkOpen();
-        if (level != TRANSACTION_NONE)
+        if (level != Connection.TRANSACTION_NONE)
             throw new SQLNonTransientException("Only TRANSACTION_NONE is supported.");
     }
 
     @Override
     public int getTransactionIsolation() throws SQLException {
         checkOpen();
-        return TRANSACTION_NONE;
+        return Connection.TRANSACTION_NONE;
     }
 
     @Override

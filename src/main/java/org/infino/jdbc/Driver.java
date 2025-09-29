@@ -13,6 +13,7 @@ import org.infino.jdbc.logging.LoggerFactory;
 import org.infino.jdbc.logging.NoOpLogger;
 
 import java.sql.Connection;
+import org.infino.jdbc.logging.InfinoConnection;
 import java.sql.DriverManager;
 import java.sql.DriverPropertyInfo;
 import java.sql.SQLException;
