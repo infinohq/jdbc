@@ -5,7 +5,7 @@ lib = library(identifier: 'jenkins@10.0.0', retriever: modernSCM([
 
 standardReleasePipelineWithGenericTrigger(
     overrideDockerImage: 'Infinostaging/ci-runner:release-centos7-clients-v4',
-    tokenIdCredential: 'jenkins-sql-jdbc-generic-webhook-token',
+    tokenIdCredential: 'jenkins-jdbc-generic-webhook-token',
     causeString: 'A tag was cut on infinohq/infino repository causing this workflow to run',
     downloadReleaseAsset: true,
     publishRelease: true) {

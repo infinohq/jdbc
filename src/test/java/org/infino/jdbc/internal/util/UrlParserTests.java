@@ -42,10 +42,10 @@ class UrlParserTests {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "jdbc:Infino:/",
+            "jdbc:infino:/",
             "Infino://host:9200/path",
-            "jdbc:Infino:",
-            "jdbc:Infino",
+            "jdbc:infino:",
+            "jdbc:infino",
             "jdbc://host:9200/"
     })
     void testIsNotAcceptable(String url) {

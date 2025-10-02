@@ -1,6 +1,6 @@
 ## Connector Download
 
-The Tableau connector is available to download from the automated CI workflow: [link](https://github.com/Infino-project/jdbc/actions/workflows/bi-connectors.yml).
+The Tableau connector is available to download from the automated CI workflow: [link](https://github.com/infinohq/jdbc/actions/workflows/bi-connectors.yml).
 The release snapshot is also available [here](Infino_jdbc.taco).
 
 ## Connector Install

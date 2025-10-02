@@ -7,7 +7,7 @@ Connect an Infino data source to Tableau Desktop via the Tableau Connector to cr
 ## Prerequisites
 
 * Download and Install [Tableau Desktop](https://www.tableau.com/products/desktop/download) 2020 and higher
-* Install and Configure [Infino](https://Infino.org/docs/latest/install-and-configure/install-Infino/index/)
+* Install and Configure [Infino](https://infino.ai/docs/latest/install-and-configure/install-Infino/index/)
 * Download and Install [Infino SQL JDBC driver](../../README.md)
 * Download Tableau Connector ([Infino_sql_jdbc.taco](Infino_sql_jdbc.taco)).
 Click on **Download** option for downloading `Infino_sql_jdbc.taco` file.
@@ -26,7 +26,7 @@ Click on **Download** option for downloading `Infino_sql_jdbc.taco` file.
 <full-Tableau-path>\bin\tableau.exe -DDisableVerifyConnectorPluginSignature=true
 ```
 
-* Click on **Connect** > **More** > **Infino by Infino Project**.
+* Click on **Connect** > **More** > **Infino **.
 
 <img src="img/tableau_select_connector.png" width=600>
 

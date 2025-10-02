@@ -1,5 +1,5 @@
 (function dsbuilder(attr) {
-	var connStr = "jdbc:Infino://";
+	var connStr = "jdbc:infino://";
 	// Set SSL value in connection string 
 	if (attr[connectionHelper.attributeSSLMode] == "require") {
 		connStr += "https://";

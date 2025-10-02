@@ -12,8 +12,8 @@ to the OpenSearch maintainers.
 | ----- | ----------------------------------------------- |
 | Build | [![JDBC CI][jdbc-build-badge]][jdbc-build-link] |
 
-[jdbc-build-badge]: https://github.com/Infino-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml/badge.svg
-[jdbc-build-link]: https://github.com/Infino-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml
+[jdbc-build-badge]: https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml/badge.svg
+[jdbc-build-link]: https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml
 
 ## Specifications
 
@@ -25,7 +25,7 @@ The driver is compatible with JDBC 4.2 specification and requires a minimum of J
 
 ## Download and Installation
 
-The driver is available for download from [Maven](https://repo1.maven.org/maven2/org/Infino/driver/Infino-sql-jdbc/), from [Artifacts page](https://Infino.org/artifacts) on Infino.org at the very bottom and from [automated CI workflow](https://github.com/Infino-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml).
+The driver is available for download from [Maven](https://repo1.maven.org/maven2/org/Infino/driver/Infino-jdbc/), from [Artifacts page](https://infino.ai/artifacts) on infino.ai at the very bottom and from [automated CI workflow](https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml).
 
 ## Using the driver
 
@@ -243,7 +243,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name?auth=aws_sigv4";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -306,7 +306,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:Infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -426,7 +426,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://https://remote-host-name?auth=aws_sigv4";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
@@ -450,7 +450,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
@@ -475,7 +475,7 @@ import javax.sql.DataSource;
 import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:Infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
 InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
@@ -513,7 +513,7 @@ The driver is built as a shadow jar so that its dependencies are bundled within 
 
 ## Documentation
 
-Please refer to the [documentation](https://Infino.org/docs/latest/) for detailed information on installing and configuring Infino.
+Please refer to the [documentation](https://infino.ai/docs/latest/) for detailed information on installing and configuring Infino.
 
 ## Code of Conduct
 

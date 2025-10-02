@@ -95,7 +95,7 @@ jar {
 }
 
 shadowJar {
-    archiveBaseName = "infino-sql-jdbc"
+    archiveBaseName = "infino-jdbc"
     archiveClassifier = null
 
     exclude 'META-INF/maven/commons-*/**'
@@ -186,7 +186,7 @@ publishing {
                 developers {
                     developer {
                         name = 'Infino'
-                        url = 'https://github.com/Infino-project/jdbc'
+                        url = 'https://github.com/infinohq/jdbc'
                     }
                 }
             }

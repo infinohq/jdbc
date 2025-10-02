@@ -3,14 +3,14 @@
 ## Download and Installation
 
 * Download and install [Tableau Desktop](https://www.tableau.com/en-ca/products/desktop/download).
-* Install and configure [Infino](https://Infino.org/docs/latest/install-and-configure/install-Infino/index/).
+* Install and configure [Infino](https://infino.ai/docs/latest/install-and-configure/install-Infino/index/).
 * Download the [Infino JDBC Driver](../README.md#download-and-installation).
 
 ## Setup
 
 ### Specify the JDBC driver
 
-Place the `Infino-sql-jdbc-x.x.x.x.jar` file in the folder for your operating system. (Create the folder if it doesn't already exist.)
+Place the `Infino-jdbc-x.x.x.x.jar` file in the folder for your operating system. (Create the folder if it doesn't already exist.)
 
 | Platform | Driver Path |
 |---|---|
@@ -49,7 +49,7 @@ For futher details check [using a .tdc file with Tableau](https://kb.tableau.com
 You will need:
 * [JDBC connection string](../README.md#connection-url-and-other-settings) to enter in the URL field when you connect.
 
-  Sample connection string for connecting to localhost: `jdbc:Infino://localhost:9200`.
+  Sample connection string for connecting to localhost: `jdbc:infino://localhost:9200`.
 
 * Credentials for signing in to the server (user name and password).
 * (Optional) JDBC properties file to customize the driver behavior. For more details check [Customize JDBC Connections Using a Properties File](https://community.tableau.com/docs/DOC-17978)

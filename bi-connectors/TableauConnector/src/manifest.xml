@@ -3,7 +3,7 @@
 <connector-plugin class='Infino_jdbc' superclass='jdbc' plugin-version='1.0.1' name='Infino' version='18.1' min-version-tableau='2021.1'>
   <vendor-information>
     <company name="Infino Project"/>
-    <support-link url="https://forum.Infino.org/"/>
+    <support-link url="https://forum.infino.ai/"/>
   </vendor-information>
   <connection-customization class="Infino_jdbc" enabled="true" version="10.0">
     <vendor name="Infino Project"/>
