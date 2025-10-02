@@ -1,7 +1,7 @@
 /*
- * Copyright OpenSearch Contributors
+ * Copyright Infino Contributors
  * SPDX-License-Identifier: Apache-2.0
  */
 
 
-rootProject.name = 'opensearch-sql-jdbc'
+rootProject.name = 'Infino-jdbc'

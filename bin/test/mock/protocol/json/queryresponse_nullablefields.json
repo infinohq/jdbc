@@ -1,0 +1,132 @@
+{
+  "schema": [
+    {
+      "name": "testBoolean",
+      "type": "boolean"
+    },
+    {
+      "name": "docId",
+      "type": "text"
+    },
+    {
+      "name": "testByte",
+      "type": "byte"
+    },
+    {
+      "name": "testFloat",
+      "type": "float"
+    },
+    {
+      "name": "testLong",
+      "type": "long"
+    },
+    {
+      "name": "testShort",
+      "type": "short"
+    },
+    {
+      "name": "testHalfFloat",
+      "type": "half_float"
+    },
+    {
+      "name": "testTimeStamp",
+      "type": "timestamp"
+    },
+    {
+      "name": "testScaledFloat",
+      "type": "scaled_float"
+    },
+    {
+      "name": "testKeyword",
+      "type": "keyword"
+    },
+    {
+      "name": "testText",
+      "type": "text"
+    },
+    {
+      "name": "testDouble",
+      "type": "double"
+    },
+    {
+      "name": "testStruct",
+      "type": "object"
+    },
+    {
+      "name": "testArray",
+      "type": "array"
+    }
+  ],
+  "total": 3,
+  "datarows": [
+    [
+      null,
+      "2",
+      null,
+      22.145135459218345,
+      null,
+      null,
+      24.324234543532153,
+      "2015-01-01 12:10:30",
+      24.324234543532153,
+      "Test String",
+      "document3",
+      null,
+      {
+        "attribute1": "value1",
+        "attribute2": 2,
+        "attribute3": 15.0
+      },
+      ["item1", "item2", "item3"]
+    ],
+    [
+      true,
+      "1",
+      126,
+      null,
+      32000320003200030,
+      29000,
+      null,
+      null,
+      null,
+      null,
+      null,
+      22.312423148903218,
+      null,
+      null
+    ],
+    [
+      true,
+      "1",
+      126,
+      null,
+      32000320003200030,
+      29000,
+      null,
+      null,
+      null,
+      null,
+      null,
+      22.312423148903218,
+      {
+        "struct": {"attribute1": "value1", "attribute2": 2, "attribute3": 15.0},
+        "string": "hello",
+        "int": 1
+      },
+      [
+        {
+          "attribute1": "value1",
+          "attribute2": 2,
+          "attribute3": 15.0
+        },
+        {
+          "attribute1": "value2",
+          "attribute2": 100,
+          "attribute3": 75.5
+        }
+      ]
+    ]
+  ],
+  "size": 3,
+  "status": 200
+}

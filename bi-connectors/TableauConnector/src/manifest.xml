@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8' ?>
 
-<connector-plugin class='opensearch_jdbc' superclass='jdbc' plugin-version='1.0.1' name='OpenSearch' version='18.1' min-version-tableau='2021.1'>
+<connector-plugin class='Infino_jdbc' superclass='jdbc' plugin-version='1.0.1' name='Infino' version='18.1' min-version-tableau='2021.1'>
   <vendor-information>
-    <company name="OpenSearch Project"/>
-    <support-link url="https://forum.opensearch.org/"/>
+    <company name="Infino Project"/>
+    <support-link url="https://forum.infino.ai/"/>
   </vendor-information>
-  <connection-customization class="opensearch_jdbc" enabled="true" version="10.0">
-    <vendor name="OpenSearch Project"/>
+  <connection-customization class="Infino_jdbc" enabled="true" version="10.0">
+    <vendor name="Infino Project"/>
     <driver name="SQL"/>
     <customizations>
       <customization name="CAP_CREATE_TEMP_TABLES" value="no"/>
@@ -34,13 +34,13 @@
       <customization name="CAP_JDBC_METADATA_READ_PRIMARYKEYS" value="no"/>
       <customization name="CAP_JDBC_SUPPRESS_ENUMERATE_DATABASES" value="yes"/>
       <customization name="CAP_JDBC_SUPPRESS_ENUMERATE_SCHEMAS" value="yes"/>
-      <!-- OpenSearch SQL can't proceed queries longer than ~1.5k. This setting could help to avoid this limitation. It limits the max length of the string, not of the query. -->
+      <!-- Infino SQL can't proceed queries longer than ~1.5k. This setting could help to avoid this limitation. It limits the max length of the string, not of the query. -->
       <customization name="CAP_JDBC_MAX_STRING_LENGTH_MEDIUM" value="yes"/>
       <customization name="CAP_CONNECT_STORED_PROCEDURE" value="no"/>
       <customization name="CAP_SUPPORTS_UNION" value="no"/>
       <!-- 
       CAP_SUPPRESS_GET_SERVER_TIME will fix the error while creating extract in tableau.
-      This can be removed when OpenSearch supports query without FROM clause.
+      This can be removed when Infino supports query without FROM clause.
       For smore details: https://community.tableau.com/message/1092123?et=watches.email.thread#1092123
       -->
       <customization name="CAP_SUPPRESS_GET_SERVER_TIME" value="yes"/>

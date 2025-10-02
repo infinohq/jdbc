@@ -11,7 +11,7 @@ information to effectively respond to your bug report or contribution.
 
 We welcome you to use the GitHub issue tracker to report bugs or suggest features.
 
-When filing an issue, please check [existing open](https://github.com/opensearch-project/sql-jdbc/issues?q=is%3Aopen+is%3Aissue), or [recently closed](https://github.com/opensearch-project/sql-jdbc/issues?q=is%3Aissue+is%3Aclosed), issues to make sure somebody else hasn't already
+When filing an issue, please check [existing open](https://github.com/infinohq/jdbc/issues?q=is%3Aopen+is%3Aissue), or [recently closed](https://github.com/infinohq/jdbc/issues?q=is%3Aissue+is%3Aclosed), issues to make sure somebody else hasn't already
 reported the issue. Please try to include as much information as you can. Details like these are incredibly useful:
 
 * A reproducible test case or series of steps
@@ -20,7 +20,7 @@ reported the issue. Please try to include as much information as you can. Detail
 * Anything unusual about your environment or deployment
 
 ## Sign your work
-OpenSearch is an open source product released under the Apache 2.0 license (see either [the Apache site](https://www.apache.org/licenses/LICENSE-2.0) or the [LICENSE.txt file](./LICENSE)).  The Apache 2.0 license allows you to freely use, modify, distribute, and sell your own products that include Apache 2.0 licensed software.
+Infino is an open source product released under the Apache 2.0 license (see either [the Apache site](https://www.apache.org/licenses/LICENSE-2.0) or the [LICENSE.txt file](./LICENSE)).  The Apache 2.0 license allows you to freely use, modify, distribute, and sell your own products that include Apache 2.0 licensed software.
 
 We respect intellectual property rights of others and we want to make sure all incoming contributions are correctly attributed and licensed. A Developer Certificate of Origin (DCO) is a lightweight mechanism to do that.
 
@@ -54,7 +54,7 @@ By making a contribution to this project, I certify that:
     consistent with this project or the open source license(s)
     involved.
  ```
-We require that every contribution to OpenSearch is signed with a Developer Certificate of Origin.  Additionally, please use your real name.  We do not accept anonymous contributors nor those utilizing pseudonyms.
+We require that every contribution to Infino is signed with a Developer Certificate of Origin.  Additionally, please use your real name.  We do not accept anonymous contributors nor those utilizing pseudonyms.
 
 Each commit must include a DCO which looks like this
 
@@ -84,7 +84,7 @@ GitHub provides additional document on [forking a repository](https://help.githu
 
 
 ## Finding contributions to work on
-Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/opensearch-project/sql-jdbc/issues?q=is%3Aopen+label%3A%22help+wanted%22) issues is a great place to start.
+Looking at the existing issues is a great way to find something to contribute on. As our projects, by default, use the default GitHub issue labels (enhancement/bug/duplicate/help wanted/invalid/question/wontfix), looking at any ['help wanted'](https://github.com/infinohq/jdbc/issues?q=is%3Aopen+label%3A%22help+wanted%22) issues is a great place to start.
 
 
 ## Code of Conduct

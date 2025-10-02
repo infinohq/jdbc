@@ -1,21 +1,21 @@
-# Connecting OpenSearch to Tableau Desktop via the Tableau Connector
+# Connecting Infino to Tableau Desktop via the Tableau Connector
 
 ## Overview
 
-Connect an OpenSearch data source to Tableau Desktop via the Tableau Connector to create a basic graph.
+Connect an Infino data source to Tableau Desktop via the Tableau Connector to create a basic graph.
 
 ## Prerequisites
 
 * Download and Install [Tableau Desktop](https://www.tableau.com/products/desktop/download) 2020 and higher
-* Install and Configure [OpenSearch](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index/)
-* Download and Install [OpenSearch SQL JDBC driver](../../README.md)
-* Download Tableau Connector ([opensearch_sql_jdbc.taco](opensearch_sql_jdbc.taco)).
-Click on **Download** option for downloading `opensearch_sql_jdbc.taco` file.
+* Install and Configure [Infino](https://infino.ai/docs/latest/install-and-configure/install-Infino/index/)
+* Download and Install [Infino SQL JDBC driver](../../README.md)
+* Download Tableau Connector ([Infino_sql_jdbc.taco](Infino_sql_jdbc.taco)).
+Click on **Download** option for downloading `Infino_sql_jdbc.taco` file.
 <img src="img/tableau_download_taco.png" >
 
 ## Prepare data 
 
-* Copy `opensearch_sql_jdbc.taco` file to My Tableau Repository.
+* Copy `Infino_sql_jdbc.taco` file to My Tableau Repository.
 
   * On windows: **%User%/Documents/My Tableau Repository/Connectors/**.
   * On Mac: **~/Documents/My Tableau Repository/Connectors/**.
@@ -26,7 +26,7 @@ Click on **Download** option for downloading `opensearch_sql_jdbc.taco` file.
 <full-Tableau-path>\bin\tableau.exe -DDisableVerifyConnectorPluginSignature=true
 ```
 
-* Click on **Connect** > **More** > **OpenSearch by OpenSearch Project**.
+* Click on **Connect** > **More** > **Infino **.
 
 <img src="img/tableau_select_connector.png" width=600>
 

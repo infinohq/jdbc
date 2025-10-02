@@ -1,7 +1,7 @@
-(function dsbuilder(attr){
-	var connStr = "jdbc:opensearch://";
+(function dsbuilder(attr) {
+	var connStr = "jdbc:infino://";
 	// Set SSL value in connection string 
-	if (attr[connectionHelper.attributeSSLMode] == "require"){
+	if (attr[connectionHelper.attributeSSLMode] == "require") {
 		connStr += "https://";
 	} else {
 		connStr += "http://";
@@ -12,12 +12,12 @@
 
 	// Set authentication values in connection string
 	var authAttrValue = attr[connectionHelper.attributeAuthentication];
-	if (authAttrValue == "auth-none"){
+	if (authAttrValue == "auth-none") {
 		connStr += "auth=NONE&trustSelfSigned=" + attr["v-trustSelfSigned"];
-	} else if (authAttrValue == "auth-integrated"){
+	} else if (authAttrValue == "auth-integrated") {
 		connStr += "auth=AWS_SIGV4";
 		var region = attr["v-region"];
-		if (region){
+		if (region) {
 			connStr += "&Region=" + region;
 		}
 	} else { //if (authAttrValue == "auth-user-pass"){

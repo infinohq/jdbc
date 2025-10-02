@@ -1,6 +1,9 @@
-## OpenSearch - JDBC
+## Infino - JDBC
 
-This is the driver for JDBC connectivity to a cluster running with OpenSearch SQL support.
+This is the driver for JDBC connectivity to a cluster running with Infino SQL support.
+
+It is adapted from the OpenSearch JDBC driver, and a great amount of credit should go
+to the OpenSearch maintainers.
 
 
 ### JDBC Driver
@@ -9,8 +12,8 @@ This is the driver for JDBC connectivity to a cluster running with OpenSearch SQ
 | ----- | ----------------------------------------------- |
 | Build | [![JDBC CI][jdbc-build-badge]][jdbc-build-link] |
 
-[jdbc-build-badge]: https://github.com/opensearch-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml/badge.svg
-[jdbc-build-link]: https://github.com/opensearch-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml
+[jdbc-build-badge]: https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml/badge.svg
+[jdbc-build-link]: https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml
 
 ## Specifications
 
@@ -22,22 +25,20 @@ The driver is compatible with JDBC 4.2 specification and requires a minimum of J
 
 ## Download and Installation
 
-The driver is available for download from [Maven](https://repo1.maven.org/maven2/org/opensearch/driver/opensearch-sql-jdbc/), from [Artifacts page](https://opensearch.org/artifacts) on OpenSearch.org at the very bottom and from [automated CI workflow](https://github.com/opensearch-project/sql-jdbc/actions/workflows/sql-jdbc-test-and-build-workflow.yml).
+The driver is available for download from [Maven](https://repo1.maven.org/maven2/org/Infino/driver/Infino-jdbc/), from [Artifacts page](https://infino.ai/artifacts) on infino.ai at the very bottom and from [automated CI workflow](https://github.com/infinohq/jdbc/actions/workflows/jdbc-test-and-build-workflow.yml).
 
 ## Using the driver
 
 The driver comes in the form of a single jar file. To use it, simply place it on the classpath of the
 Java application that needs to use it.
 
-If using with JDBC compatible BI tools, refer to the tool documentation on configuring a new JDBC driver. Typically,
-all that's required is to make the tool aware of the location of the driver jar and then use it to setup database (i.e
-OpenSearch) connections.
+If using with JDBC compatible BI tools, refer to the tool documentation on configuring a new JDBC driver. Typically, all that's required is to make the tool aware of the location of the driver jar and then use it to setup database (i.e Infino) connections.
 
 ### Connection URL and other settings
 
 To setup a connection, the driver requires a JDBC connection URL. The connection URL is of the form:
 ```
-    jdbc:opensearch://[scheme://][host][:port][/context-path]?[property-key=value]&[property-key2=value2]..&[property-keyN=valueN]
+    jdbc:infino://[scheme://][host][:port][/context-path]?[property-key=value]&[property-key2=value2]..&[property-keyN=valueN]
 ```
 
 
@@ -76,7 +77,7 @@ To setup a connection, the driver requires a JDBC connection URL. The connection
   |------------------------|------------------------------------------------------------------------------------------------------------------|-------------------|----------------|
   | user                   | Connection username. mandatory if `auth` property selects a authentication scheme that mandates a username value | any string        | `null`         |
   | password               | Connection password. mandatory if `auth` property selects a authentication scheme that mandates a password value | any string        | `null`         |
-  | fetchSize              | Cursor page size | positive integer value. Max value is limited by `index.max_result_window` OpenSearch setting  |   `0` (for non-paginated response) |
+  | fetchSize              | Cursor page size | positive integer value. Max value is limited by `index.max_result_window` Infino setting  |   `0` (for non-paginated response) |
   | logOutput              | Location where driver logs should be emitted                                                                     | a valid file path | `null` (logs are disabled) |
   | logLevel               | Severity level for which driver logs should be emitted                                                           | in order from highest (least logging) to lowest (most logging): `OFF`, `FATAL`, `ERROR`, `WARN`, `INFO`, `DEBUG`, `TRACE`, `ALL` | `OFF` (logs are disabled) |
   | auth                   | Authentication mechanism to use | `NONE` (no auth), `BASIC` (HTTP Basic), `AWS_SIGV4` (AWS SIGV4) | `basic` if username and/or password is specified, `NONE` otherwise |
@@ -96,7 +97,7 @@ To setup a connection, the driver requires a JDBC connection URL. The connection
 
 ### Connecting using the DriverManager interface
 
-The main Driver class is `org.opensearch.jdbc.Driver`. If the driver jar is on the application classpath, no other configuration is required.
+The main Driver class is `org.infino.jdbc.Driver`. If the driver jar is on the application classpath, no other configuration is required.
 
 Code samples to open a connection for some typical scenarios are given below:
 
@@ -108,7 +109,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://localhost:9200";
+String url = "jdbc:infino://localhost:9200";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -127,7 +128,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -146,7 +147,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -168,7 +169,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 String user = "username";
 String password = "password";
 
@@ -189,7 +190,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -213,7 +214,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://remote-host-name";
+String url = "jdbc:infino://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("useSSL", "true");
@@ -242,7 +243,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name?auth=aws_sigv4";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -261,7 +262,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("auth", "aws_sigv4");
@@ -283,7 +284,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("awsCredentialsProvider", new EnvironmentVariableCredentialsProvider());
@@ -305,7 +306,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
 Connection con = DriverManager.getConnection(url);
 Statement st = con.createStatement();
@@ -324,7 +325,7 @@ import java.sql.DriverManager;
 import java.sql.Statement;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
 Properties properties = new Properties();
 properties.put("auth", "aws_sigv4");
@@ -340,7 +341,7 @@ con.close();
 ```
 ### Connecting using the DataSource interface
 
-The driver also provides a `javax.sql.DataSource` implementation via the `org.opensearch.jdbc.OpenSearchDataSource` class that can be used to obtain a connection. Here are some typical code samples:
+The driver also provides a `javax.sql.DataSource` implementation via the `org.infino.jdbc.InfinoDataSource` class that can be used to obtain a connection. Here are some typical code samples:
 
 
 * Connect to localhost on port 9200 with no authentication over a plain connection
@@ -350,12 +351,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://localhost:9200";
+String url = "jdbc:infino://localhost:9200";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 
 Connection con = ds.getConnection(url);
@@ -374,12 +375,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 
 Connection con = ds.getConnection(url);
@@ -398,12 +399,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://https://remote-host-name";
+String url = "jdbc:infino://https://remote-host-name";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 
 Connection con = ds.getConnection(url, "user", "password");
@@ -422,12 +423,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://https://remote-host-name?auth=aws_sigv4";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 
 Connection con = ds.getConnection(url);
@@ -446,12 +447,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 ds.setAwsCredentialProvider(new EnvironmentVariableCredentialsProvider());
 
@@ -471,12 +472,12 @@ import java.sql.Connection;
 import java.sql.Statement;
 import javax.sql.DataSource;
 
-import org.opensearch.jdbc.OpenSearchDataSource;
+import org.infino.jdbc.InfinoDataSource;
 
 
-String url = "jdbc:opensearch://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
+String url = "jdbc:infino://https://remote-host-name?auth=aws_sigv4&region=us-west-1";
 
-OpenSearchDataSource ds = new OpenSearchDataSource();
+InfinoDataSource ds = new InfinoDataSource();
 ds.setUrl(url);
 
 Connection con = ds.getConnection(url);
@@ -512,7 +513,7 @@ The driver is built as a shadow jar so that its dependencies are bundled within 
 
 ## Documentation
 
-Please refer to the [documentation](https://opensearch.org/docs/latest/) for detailed information on installing and configuring OpenSearch.
+Please refer to the [documentation](https://infino.ai/docs/latest/) for detailed information on installing and configuring Infino.
 
 ## Code of Conduct
 
@@ -528,5 +529,5 @@ See the [LICENSE](LICENSE) file for our project's licensing. We will ask you to 
 
 ## Copyright
 
-Copyright OpenSearch Contributors. See [NOTICE](NOTICE) for details.
+Copyright Infino and OpenSearch Contributors. See [NOTICE](NOTICE) for details.
 

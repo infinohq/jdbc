@@ -1,16 +1,16 @@
-# Connecting Tableau with OpenSearch
+# Connecting Tableau with Infino
 
 ## Download and Installation
 
 * Download and install [Tableau Desktop](https://www.tableau.com/en-ca/products/desktop/download).
-* Install and configure [OpenSearch](https://opensearch.org/docs/latest/install-and-configure/install-opensearch/index/).
-* Download the [OpenSearch JDBC Driver](../README.md#download-and-installation).
+* Install and configure [Infino](https://infino.ai/docs/latest/install-and-configure/install-Infino/index/).
+* Download the [Infino JDBC Driver](../README.md#download-and-installation).
 
 ## Setup
 
 ### Specify the JDBC driver
 
-Place the `opensearch-sql-jdbc-x.x.x.x.jar` file in the folder for your operating system. (Create the folder if it doesn't already exist.)
+Place the `Infino-jdbc-x.x.x.x.jar` file in the folder for your operating system. (Create the folder if it doesn't already exist.)
 
 | Platform | Driver Path |
 |---|---|
@@ -20,12 +20,12 @@ Place the `opensearch-sql-jdbc-x.x.x.x.jar` file in the folder for your operatin
 
 ### Create TDC file
 
-TDC file is required to add customization for the data connection. For reference, see the following sample `opensearch.tdc` file.
+TDC file is required to add customization for the data connection. For reference, see the following sample `Infino.tdc` file.
 ```
 <?xml version='1.0' encoding='utf-16' ?>
 <connection-customization class='genericjdbc' enabled='true' version='2019.3'>
   <vendor name='genericjdbc' />
-  <driver name='opensearch' />
+  <driver name='Infino' />
   <customizations>
 	<customization name='CAP_CREATE_TEMP_TABLES' value='no'/>
 	<customization name='CAP_SUPPRESS_DISCOVERY_QUERIES' value='yes' />
@@ -39,7 +39,7 @@ TDC file is required to add customization for the data connection. For reference
 </connection-customization> 
 ```
 * Using a text editor, add `<connection-customization>` section.
-* Name the file `opensearch.tdc` and save it to `My Tableau Repository\Datasources`.
+* Name the file `Infino.tdc` and save it to `My Tableau Repository\Datasources`.
 * Restart Tableau to apply the change.
 
 For futher details check [using a .tdc file with Tableau](https://kb.tableau.com/articles/howto/using-a-tdc-file-with-tableau-server)
@@ -49,11 +49,11 @@ For futher details check [using a .tdc file with Tableau](https://kb.tableau.com
 You will need:
 * [JDBC connection string](../README.md#connection-url-and-other-settings) to enter in the URL field when you connect.
 
-  Sample connection string for connecting to localhost: `jdbc:opensearch://localhost:9200`.
+  Sample connection string for connecting to localhost: `jdbc:infino://localhost:9200`.
 
 * Credentials for signing in to the server (user name and password).
 * (Optional) JDBC properties file to customize the driver behavior. For more details check [Customize JDBC Connections Using a Properties File](https://community.tableau.com/docs/DOC-17978)
-  * Create a properties file called `opensearch.properties`.
+  * Create a properties file called `Infino.properties`.
   * Save the file to the `My Tableau Repository\Datasources` directory.
 
 

@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 11
-          distribution: 'temurin'
+          distribution: "temurin"
           cache: gradle
       - name: Build with Gradle
         run: |
@@ -26,7 +26,7 @@ jobs:
         run: |
           ./gradlew shadowJar
           mkdir build/shadowJar
-          mv build/libs/opensearch-sql-jdbc-shadow-*.jar build/shadowJar
+          mv build/libs/Infino-jdbc-shadow-*.jar build/shadowJar
           tar -C build -cvf artifacts.tar.gz repository shadowJar
       - name: Draft a release
         uses: softprops/action-gh-release@v1

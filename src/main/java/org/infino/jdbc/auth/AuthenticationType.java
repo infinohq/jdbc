@@ -1,0 +1,33 @@
+/*
+ * Copyright Infino and OpenSearch Contributors
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+package org.infino.jdbc.auth;
+
+/**
+ * Enum representing supported authentication methods
+ *
+ */
+public enum AuthenticationType {
+
+    /**
+     * No authentication
+     */
+    NONE,
+
+    /**
+     * HTTP Basic authentication
+     */
+    BASIC,
+
+    /**
+     * AWS Signature V4
+     */
+    AWS_SIGV4,
+
+    /**
+     * AWS Signature V4 for AOSS Serverless collection
+     */
+    AWS_SIGV4_SERVERLESS;
+}
